@@ -43,8 +43,8 @@ $ .car/park ../Git/Data/CarPark/11x9_10c_26t.prk 26 moves
 If the ‘show’ flag is used, your program will print out the solution in the correct order :
 
 $ ./carpark -show ../Git/Data/CarPark/6x6_2c_3t.prk
-#.#### 
-.BBB.# 
+#.####/br
+.BBB.# /br
 #A...# 
 #A...# 
 #A...# 
