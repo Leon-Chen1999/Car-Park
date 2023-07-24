@@ -12,13 +12,13 @@ To ‘solve’ the car park above, we would move vehicle B one move left (so tha
   <img width="62" alt="image" src="https://github.com/Leon-Chen1999/Car-Park/assets/122807406/63656f4c-3bd4-44cc-a5d7-d40aebe57338">
   All vehicles have now exited the car park taking a total of three turns.
   Write a program that reads in a car park file (specified on the command line), and shows the ‘turns’ to solve it. The file for the car park above looks like 
-  6x6\n
-#.####\n
-.BBB.#\n
-#A...#\n
-#A...#\n
-#A...#\n
-######n\
+  6x6
+#.####  
+.BBB.#  
+#A...#  
+#A...#  
+#A...#  
+######  
 
 The first line has two numbers; the height of the car park (number of rows) and then the width (number of columns).
 In the remainder of the file, vehicles are shown as a capital letter, gaps as a full-stop and bollards as a hash symbol. Each cars may only lie in the grid vertically or horizontally, and must be of at least length 2. Each vehicle must have a unique uppercase letter, the first of which must be an ‘A’, the next one be ‘B’ and so on.
@@ -43,35 +43,38 @@ $ .car/park ../Git/Data/CarPark/11x9_10c_26t.prk 26 moves
 If the ‘show’ flag is used, your program will print out the solution in the correct order :
 
 $ ./carpark -show ../Git/Data/CarPark/6x6_2c_3t.prk
-#.####/br
-.BBB.# /br
-#A...# 
-#A...# 
-#A...# 
-######
+#.####  
+.BBB.#  
+#A...#   
+#A...#   
+#A...#   
+######  
+  
+#.####  
+.....#  
+#A...#   
+#A...#  
+#A...#   
+######  
+  
+#.####   
+.A...#   
+#A...#  
+#A...#   
+#....#  
+######  
+  
+#.####   
+.....#  
+#....#  
+#....#  
+#....#   
+######  
+  
+3 moves  
 
-#.####
-.....#
-#A...# 
-#A...#
-#A...# 
-######
+  <img width="331" alt="image" src="https://github.com/Leon-Chen1999/Car-Park/assets/122807406/35ac32c9-7ee7-43a5-b8e0-cc6cd3f4582b">  
 
-#.#### 
-.A...# 
-#A...#
-#A...# 
-#....#
-######
-
-#.#### 
-.....#
-#....#
-#....#
-#....# 
-######
-
-3 moves
 Your program :
 • Must use the algorithm detailed above (which is similar to a queue and therefore a
 breadth-first search). Do not use the other algorithms possible (e.g. best-first, guided, recursive etc.); the quality of your coding is being assessed against others taking the same approach.
