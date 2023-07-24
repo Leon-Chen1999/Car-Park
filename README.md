@@ -12,7 +12,14 @@ To ‘solve’ the car park above, we would move vehicle B one move left (so tha
   <img width="62" alt="image" src="https://github.com/Leon-Chen1999/Car-Park/assets/122807406/63656f4c-3bd4-44cc-a5d7-d40aebe57338">
   All vehicles have now exited the car park taking a total of three turns.
   Write a program that reads in a car park file (specified on the command line), and shows the ‘turns’ to solve it. The file for the car park above looks like 
-  <img width="62" alt="image" src="https://github.com/Leon-Chen1999/Car-Park/assets/122807406/fbf0b7df-dbff-474d-a602-f42a04b68809">
+  6x6
+#.####
+.BBB.#
+#A...#
+#A...#
+#A...#
+######
+
 The first line has two numbers; the height of the car park (number of rows) and then the width (number of columns).
 In the remainder of the file, vehicles are shown as a capital letter, gaps as a full-stop and bollards as a hash symbol. Each cars may only lie in the grid vertically or horizontally, and must be of at least length 2. Each vehicle must have a unique uppercase letter, the first of which must be an ‘A’, the next one be ‘B’ and so on.
 We wil use a brute-force algorithm for searching over all moves for a solution :
@@ -29,10 +36,42 @@ end of the list.
 5. Add one to f. If there are more car parks in the list, go to step 3.
 To help with printing out the correct moves, when a solution has been found, each structure in the list will need to contain (amongst other things) a car park and a record of its parent car park, i.e. the car park that it was created from. Since you’re using an array, this could simply be which index of the array was the parent.
 The program reads the name of the car park definition file from the command line. If it finds a successful solution, it prints out the number of car parks that would be printed in the solution and nothing else, or else exactly the phrase ‘No Solution?” if none can be found (as might be the case if it is impossible, or you simply run out of memory) :
-<img width="313" alt="image" src="https://github.com/Leon-Chen1999/Car-Park/assets/122807406/9d9bdd2d-5a31-4dba-a613-09cb2cc05fdf">
+$ ./carpark ../Git/Data/CarPark/6x6_2c_3t.prk
+3 moves
+$ .car/park ../Git/Data/CarPark/11x9_10c_26t.prk 26 moves
+
 If the ‘show’ flag is used, your program will print out the solution in the correct order :
-<img width="308" alt="image" src="https://github.com/Leon-Chen1999/Car-Park/assets/122807406/060c1599-b714-4c7b-8c09-39db400262b5">
-<img width="363" alt="image" src="https://github.com/Leon-Chen1999/Car-Park/assets/122807406/dac5a9db-7416-4571-9720-196cf8a0668f">
+
+$ ./carpark -show ../Git/Data/CarPark/6x6_2c_3t.prk
+#.#### 
+.BBB.# 
+#A...# 
+#A...# 
+#A...# 
+######
+
+#.####
+.....#
+#A...# 
+#A...#
+#A...# 
+######
+
+#.#### 
+.A...# 
+#A...#
+#A...# 
+#....#
+######
+
+#.#### 
+.....#
+#....#
+#....#
+#....# 
+######
+
+3 moves
 Your program :
 • Must use the algorithm detailed above (which is similar to a queue and therefore a
 breadth-first search). Do not use the other algorithms possible (e.g. best-first, guided, recursive etc.); the quality of your coding is being assessed against others taking the same approach.
